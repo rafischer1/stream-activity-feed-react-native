@@ -6,12 +6,25 @@ import Feed from "./screens/Feed";
 import Login from "./screens/Login";
 
 export default class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      email: "",
+      name: "Artman",
+      token:
+        "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidXNlci1vbmUifQ.LjTWUNiUbwrIF60zkeAtayT9pLfbO - GBBT0oAVoUFvI"
+    };
+  }
   render() {
     return (
       <KeyboardAvoidingView behavior="padding" enabled style={styles.root}>
         <Router>
           <Switch>
-            <Route exact path="/feed" component={Feed} />
+            <Route
+              exact
+              path="/feed"
+              render={props => <Feed {...props} token={this.state.token} />}
+            />
             <Route path="/" component={Login} />
           </Switch>
         </Router>
@@ -23,6 +36,6 @@ export default class App extends Component {
 const styles = StyleSheet.create({
   root: {
     flex: 1,
-    backgroundColor: "white"
+    backgroundColor: "#D1F2EB"
   }
 });

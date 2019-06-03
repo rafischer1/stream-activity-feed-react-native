@@ -12,7 +12,8 @@ const CustomActivity = props => {
   return <Activity {...props} Footer={<LikeButton {...props} />} />;
 };
 
-const Feed = () => {
+const Feed = ({ token }) => {
+  console.log("feed init token:", token);
   return (
     <SafeAreaView style={{ flex: 1 }} forceInset={{ top: "always" }}>
       <StreamApp

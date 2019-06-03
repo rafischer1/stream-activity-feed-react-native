@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import {
   Image,
   SafeAreaView,
@@ -9,10 +9,11 @@ import {
   View
 } from "react-native";
 import { Link } from "react-router-native";
+// import console = require("console");
 
 const hitSlop = { top: 24, right: 24, bottom: 24, left: 24 };
 
-class Login extends Component {
+class Login extends PureComponent {
   constructor(props) {
     super(props);
 
@@ -32,6 +33,10 @@ class Login extends Component {
     <TouchableOpacity disabled={!this._canLogin} hitSlop={hitSlop} {...props} />
   );
 
+  loginCallback = () => {
+    console.log("clicked the callback");
+  };
+
   render() {
     const { email, name } = this.state;
     return (
@@ -43,7 +48,7 @@ class Login extends Component {
               "https://cdn0.iconfinder.com/data/icons/tiny-icons-1/100/tiny-11-512.png"
             }
           /> */}
-          <Text style={styles.name}>Activity Bot</Text>
+          <Text style={styles.name}>Activity Feed Login</Text>
         </View>
         <TextInput
           style={styles.input}
@@ -60,7 +65,9 @@ class Login extends Component {
         />
         <View style={styles.btnWrapper}>
           <Link to={this._to} component={this._renderLink}>
-            <Text style={this._labelStyle}>Activity Feed Example</Text>
+            <Text style={this._labelStyle} onClick={() => this.loginCallback}>
+              Activity Feed Example
+            </Text>
           </Link>
         </View>
       </SafeAreaView>
@@ -84,7 +91,7 @@ class Login extends Component {
   get _labelStyle() {
     return {
       ...styles.btnLabel,
-      color: this._canLogin ? "rgb(0, 122, 255)" : "#eeeeee"
+      color: this._canLogin ? "blue" : "#000"
     };
   }
 }
@@ -93,8 +100,12 @@ export default Login;
 
 const styles = StyleSheet.create({
   btnLabel: {
-    fontSize: 16,
-    color: "rgb(0, 122, 255)"
+    fontSize: 18,
+    color: "rgb(0, 122, 255)",
+    borderColor: "white",
+    borderWidth: 2,
+    borderRadius: 8,
+    padding: 4
   },
   btnWrapper: {
     alignItems: "center",
@@ -118,7 +129,7 @@ const styles = StyleSheet.create({
     width: 343
   },
   logo: {
-    width: 80,
+    width: 100,
     height: 112
   },
   name: {

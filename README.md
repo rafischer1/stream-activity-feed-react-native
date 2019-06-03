@@ -2,7 +2,7 @@
 
 [Activity Feed Tutorial 🦋](https://getstream.io/react-native-activity-feed/tutorial/)
 
-- [] Setup serverless / backend user generation
+- [] Setup serverless / backend user generation / Go?
 
 - [] User props to FE from sign in
 
