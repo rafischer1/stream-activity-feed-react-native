@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "activity-feed": "file:serverless",
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "expo": "^32.0.0",
     "expo-activity-feed": "^0.8.9",
     "md5": "^2.2.1",
